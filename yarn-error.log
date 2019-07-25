@@ -1,0 +1,32 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add d3
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/usr/local/sbin:/Applications/mongodb/bin:/Applications/mongodb/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  12.6.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.npm.taobao.org
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+
+npm manifest: 
+  {
+    "name": "d3-package",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

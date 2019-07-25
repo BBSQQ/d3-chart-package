@@ -1,0 +1,19 @@
+{
+  "name": "d3-package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "portal": "parcel test/index.html"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^5.9.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.18.2"
+  }
+}
