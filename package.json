@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "portal": "parcel test/index.html",
-    "demo": "scripty"
+    "dev": "parcel serve src/index.js --global _d3"
   },
   "license": "MIT",
   "dependencies": {
@@ -15,7 +14,6 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
     "parcel-bundler": "^1.12.3",
-    "prettier": "^1.18.2",
-    "scripty": "^1.9.1"
+    "prettier": "^1.18.2"
   }
 }
