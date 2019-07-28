@@ -29,3 +29,7 @@ chart.shape('interval') // interval point line
 ## TODO
 
 - [ ]  不打包工具类包 如 d3
+
+## thanks to
+
+doc 中的图片均来自[图之典](http://tuzhidian.com/)
