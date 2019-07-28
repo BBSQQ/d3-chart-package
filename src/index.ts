@@ -23,7 +23,7 @@ class D3Handler {
     }
   }
   protected createXAxis(xMap: string) {
-    const xAxis = (g) => g;
+    // const xAxis = (g) => g;
     // .attr("transform", `translate(0,${height - margin.bottom})`)
     // .call(d3.axisBottom(x));
 
