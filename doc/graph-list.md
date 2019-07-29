@@ -1,3 +1,6 @@
+
+<style>img{width: 120px;}</style>
+
 # Graph List 图表实现列表
 
 从常用图表来看，可以分成几个大类（分类标准并不代表可视化理念，有的按坐标系分开，有的按数据关系分开，取决于涉及到的常用图表数量）。
@@ -18,7 +21,7 @@
 ![Bar Chart](./imgs/柱状图.png)
 [![Multi-set Bar Chart](./imgs/分组柱状图.png)](https://observablehq.com/@d3/grouped-bar-chart)
 ![Stacked Bar Chart](./imgs/堆叠柱状图.png)
-![100% Stacked Bar Chart](./imgs/100%堆叠柱状图.png)
+![100% Stacked Bar Chart](./imgs/100per堆叠柱状图.png)
 ![Histogram](./imgs/直方图.png)
 ![Heatmap](./imgs/热力图.png)
 ![Waterfall Plot](./imgs/瀑布图.png)
@@ -30,7 +33,7 @@
 ![Area Chart](./imgs/面积图.png)
 ![Density Plot](./imgs/密度图.png)
 ![Stacked Area Graph](./imgs/堆叠面积图.png)
-![100% Stacked Area Graph](./imgs/100%堆叠面积图.png)
+![100% Stacked Area Graph](./imgs/100per堆叠面积图.png)
 ![Sorted Stream Graph](./imgs/排序流图.png)
 ![Stream Graph](./imgs/流图.png)
 
