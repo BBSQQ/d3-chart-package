@@ -10,8 +10,8 @@
 
 ### point
 
-![Bubble chart](./imgs/气泡图.png)
 ![Scatter plot](./imgs/散点图.png)
+![Bubble chart](./imgs/气泡图.png)
 
 ### interval
 

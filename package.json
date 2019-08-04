@@ -8,7 +8,9 @@
   "license": "MIT",
   "dependencies": {
     "@types/d3": "^5.7.2",
-    "d3": "^5.9.7"
+    "@types/lodash": "^4.14.136",
+    "d3": "^5.9.7",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@types/node": "^12.6.8",

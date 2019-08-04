@@ -1,13 +1,14 @@
 # Dev Design 开发设计
 
-## Overview
+## 现阶段边界设定
 
-（目前只涉及 2d 的图形）
+* 只涉及2d
+* 暂不做 `rerender` 的动作，也就不涉及 transition，不涉及data key 指定
+
+## 概览
 
 * **调用设计：** 通过类似 [antv/g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 链式调用的方法将可视化中的数据合理映射。
-
 * **实现工具：** [d3.js](https://d3js.org/) 拥有强的可扩展性
-
 * **实现方法：** 链式调用完成配置项配置，最后调用 render 方法，绘制出图表
 
 ## 配置项
