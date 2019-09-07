@@ -1,7 +1,6 @@
 const eslintrc = {
   "extends": [
     "eslint:recommended",
-    'airbnb',
     "plugin:import/errors",
     "prettier"
   ],
