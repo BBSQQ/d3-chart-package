@@ -1,25 +1,38 @@
 {
-  "name": "d3-package",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "dev": "parcel serve src/index.ts --global _d3"
-  },
+  "name": "d3-chart-package",
+  "version": "0.1.0",
+  "description": "基于d3.js 封装的图表库",
+  "keyword": "d3 chart",
+  "main": "lib/index.js",
+  "private": false,
+  "repository": "git@github.com:BBSQQ/d3-chart-package.git",
+  "author": "lixi <1491812683@qq.com>",
   "license": "MIT",
-  "dependencies": {
-    "@types/d3": "^5.7.2",
-    "@types/lodash": "^4.14.136",
-    "d3": "^5.9.7",
-    "lodash": "^4.17.15"
+  "scripts": {
+    "build": "webpack",
+    "dist": "webpack --config webpack.config.prod.js",
+    "dev": "webpack-dev-server"
   },
   "devDependencies": {
-    "@types/node": "^12.6.8",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.1",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
-    "parcel-bundler": "^1.12.3",
-    "prettier": "^1.18.2",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.5.3"
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "d3": "^5.12.0",
+    "d3-chart-package": "^0.1.0"
   }
 }
