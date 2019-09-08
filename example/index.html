@@ -6,17 +6,183 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="./toggle.css">
+  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css"> -->
   <script src="./d3.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script> -->
   <script src="./lib/index.js"></script>
   <script>
-    console.log(window.$chart)
-    window.$chart.log()
+    var sampleData1 = [{
+        key: 'A',
+        value: 620
+      },
+      {
+        key: 'B',
+        value: 450
+      },
+      {
+        key: 'C',
+        value: 970
+      },
+      {
+        key: 'D',
+        value: 780
+      }
+    ];
+
+    window.onload = function () {
+
+      // $chart(document.getElementById('bar'), sampleData1).x('key').y('value').bar().render();
+      // $chart(document.getElementById('line'), sampleData1).line()
+      // $chart(document.getElementById('pie'), sampleData1).pie()
+      // var hot = new Handsontable(document.getElementById('sample-data1'), {
+      //   data: [
+      //     ['key'].concat(sampleData1.map(i => i.key)),
+      //     ['value'].concat(sampleData1.map(i => i.value))
+      //   ],
+      //   licenseKey: 'non-commercial-and-evaluation'
+      // });
+
+      // $chart().x('key').y('value').bar().render();
+      // $chart().x('key').y('value1+value2').bar().render();
+      // $chart().polar('value').pie().render()
+
+      // .bar().transpose() = 条形图
+      // $chart().x('key').y('value').bar().transpose().render();
+
+      // 功能类
+      // .hightlight('max') // min
+      // .compare([])
+      // .target([])
+
+    };
   </script>
 </head>
 
 <body>
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius cupiditate quae ipsam, aliquam ea dolores, ratione non
-  unde blanditiis fuga excepturi modi officia sint maiores harum consequuntur eligendi. Odio, id?
+  <h2>👉&nbsp;Basic Chart</h2>
+  <div class="chart-wrapper">
+    <div class="chart-container">
+      <p class="title">Bar chart 柱形图</p>
+      <div class="chart-detail">
+        <div class="chart" id="bar"></div>
+        <pre>
+[
+  { key: 'A', value: 620 },
+  { key: 'B', value: 450 },
+  { key: 'C', value: 970 },
+  { key: 'D', value: 780 }
+]
+
+$chart(dom, data)
+  .x('key')
+  .y('value')
+  .bar()
+  .render();
+          </pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Bar chart 条形图</p>
+      <div class="chart-detail">
+        <div class="chart" id="bar"></div>
+        <pre>
+[
+  { key: 'A', value: 620 },
+  { key: 'B', value: 450 },
+  { key: 'C', value: 970 },
+  { key: 'D', value: 780 }
+]
+
+$chart(dom, data)
+  .x('key')
+  .y('value')
+  .bar()
+  .transpose()
+  .render();
+            </pre>
+      </div>
+    </div>
+  </div>
+
+  <h2>👉&nbsp;interaction analysis</h2>
+  <div class="opration-block">
+    <h3>📐&nbsp;show the highest
+      <label class="switch switch-float-right">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </h3>
+    <p>快速在图表中找到标记出来最大值</p>
+    <pre>$chart()...highlight('max', number).repaint()<br/>number 为可选参数，默认1</pre>
+    <div class="sample-charts"></div>
+  </div>
+  <div class="opration-block">
+    <h3>📐&nbsp;show the lowest
+      <label class="switch switch-float-right">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </h3>
+    <p>快速在图表中找到标记出来最小值</p>
+    <pre>$chart()...highlight('min', number).repaint()<br/>number 为可选参数，默认1</pre>
+    <div class="sample-charts"></div>
+  </div>
+  <div class="opration-block">
+    <h3>📏&nbsp;sort
+      <div class="input">
+        <input type="radio" id="order-ascending" name="contact" value="ascending">
+        <label for="order-ascending">ascending</label>
+        <input type="radio" id="order-descending" name="contact" value="descending">
+        <label for="order-descending">descending</label>
+        <input type="radio" id="order-default" name="contact" value="mail">
+        <label for="order-default">default</label>
+      </div>
+    </h3>
+    <p>选择排序方式，并且可以在动效中清晰的看到数据移动关系</p>
+    <pre>$chart()...sort('descending').repaint()</pre>
+    <div class="sample-charts"></div>
+  </div>
+  <div class="opration-block">
+    <h3>📏&nbsp;Compare with target (kufri)
+      <div class="input">
+        <input type="checkbox" id="with-target" name="with-target" value="ascending">
+        <label for="with-target">with target</label>
+      </div>
+    </h3>
+    <p>添加一组目标数组，快速查看哪些数据超过目标值</p>
+    <pre>$chart()...compare(data, 'target').repaint()</pre>
+    <div class="sample-charts"></div>
+  </div>
+  <div class="opration-block">
+    <h3>📏&nbsp;Compare with another dataset
+      <div class="input">
+        <input type="checkbox" id="compare" name="with-target" value="ascending">
+        <label for="compare">compare</label>
+      </div>
+    </h3>
+    <p>添加一组目标数组，快速查看哪些数据超过目标值</p>
+    <pre>$chart()...compare(data, 'data').repaint()</pre>
+    <div class="sample-charts"></div>
+  </div>
+  <div class="opration-block">
+    <h3>📏&nbsp;Add or delete data set
+      <div class="input">
+        <button>push</button>
+        <button>pop</button>
+        <button>shift</button>
+        <button>unshift</button>
+      </div>
+    </h3>
+    <p>数据量增加或者去掉</p>
+    <pre>
+$chart()...push(data).repaint()
+$chart()...pop(data).repaint()
+$chart()...shift(data).repaint()
+$chart()...unshift(data).repaint()</pre>
+    <div class="sample-charts"></div>
+  </div>
 </body>
 
 </html>

@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1160px;
+  padding: 100px 0;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.chart-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.chart-wrapper .chart-container {
+  width: 48%;
+  /* height: 250px; */
+  border: 1px dashed #000;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-wrapper .chart-container:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.chart-wrapper .chart-container>p.title {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px dashed #000;
+  text-align: center;
+}
+
+.chart-wrapper .chart-container .chart-detail {
+  flex: 1;
+  display: flex;
+}
+
+.chart-wrapper .chart-container .chart-detail .chart,
+.chart-wrapper .chart-container .chart-detail>pre {
+  width: 50%;
+}
+
+.chart-wrapper .chart-container .chart-detail>pre {
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.switch-float-right {
+  transform: scale(0.7);
+  vertical-align: middle;
+  float: right;
+}
+
+.opration-block {
+  border: 1px dashed #000;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.opration-block>h3 {
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+.opration-block>h3 .input {
+  float: right;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.opration-block>h3 .input label {
+  margin-right: 15px;
+}
+
+.opration-block>h3 .input button {
+  padding: 3px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.opration-block>p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.opration-block>pre {
+  background: pink;
+  line-height: 20px;
+  padding: 10px;
+}
+
+.opration-block .sample-charts {}
