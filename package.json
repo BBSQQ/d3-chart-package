@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack",
     "dist": "webpack --config webpack.config.prod.js",
-    "dev": "webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

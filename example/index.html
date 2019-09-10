@@ -6,106 +6,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="./toggle.css">
-  <link rel="stylesheet" href="./style.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css"> -->
-  <script src="./d3.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script> -->
+  <link rel="stylesheet" href="./style/toggle.css">
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/handsontable.full.min.css">
+  <script src="./lib/d3.js"></script>
+  <script src="./lib/handsontable.full.min.js"></script>
   <script src="./lib/index.js"></script>
-  <script>
-    var sampleData1 = [{
-        key: 'A',
-        value: 620
-      },
-      {
-        key: 'B',
-        value: 450
-      },
-      {
-        key: 'C',
-        value: 970
-      },
-      {
-        key: 'D',
-        value: 780
-      }
-    ];
-
-    window.onload = function () {
-
-      // $chart(document.getElementById('bar'), sampleData1).x('key').y('value').bar().render();
-      // $chart(document.getElementById('line'), sampleData1).line()
-      // $chart(document.getElementById('pie'), sampleData1).pie()
-      // var hot = new Handsontable(document.getElementById('sample-data1'), {
-      //   data: [
-      //     ['key'].concat(sampleData1.map(i => i.key)),
-      //     ['value'].concat(sampleData1.map(i => i.value))
-      //   ],
-      //   licenseKey: 'non-commercial-and-evaluation'
-      // });
-
-      // $chart().x('key').y('value').bar().render();
-      // $chart().x('key').y('value1+value2').bar().render();
-      // $chart().polar('value').pie().render()
-
-      // .bar().transpose() = 条形图
-      // $chart().x('key').y('value').bar().transpose().render();
-
-      // 功能类
-      // .hightlight('max') // min
-      // .compare([])
-      // .target([])
-
-    };
-  </script>
+  <script src="./js/data.js"></script>
+  <script src="./js/index.js"></script>
 </head>
 
 <body>
+  <h2>👉&nbsp;Dataset</h2>
+  <div class="data-wrapper">
+    <div>
+      <p>(1) 1 dimension + 1 measure</p>
+      <div id="data_d1_m1"></div>
+    </div>
+    <div>
+      <p>(2) 2 dimension + 1 measure</p>
+      <div id="data_d2_m1"></div>
+    </div>
+    <div>
+      <p>(3) 2 dimension + 1 measure</p>
+      <div id="data_d2_m1_2"></div>
+    </div>
+    <div>
+      <p>(4) 2 measure format</p>
+      <div id="data_m2_format"></div>
+    </div>
+  </div>
   <h2>👉&nbsp;Basic Chart</h2>
   <div class="chart-wrapper">
     <div class="chart-container">
-      <p class="title">Bar chart 柱形图</p>
+      <p class="title">Bar chart (vertical)</p>
       <div class="chart-detail">
-        <div class="chart" id="bar"></div>
+        <div class="chart" id="bar-vertical"></div>
         <pre>
-[
-  { key: 'A', value: 620 },
-  { key: 'B', value: 450 },
-  { key: 'C', value: 970 },
-  { key: 'D', value: 780 }
-]
-
-$chart(dom, data)
-  .x('key')
-  .y('value')
-  .bar()
+$chart(dom, data_d1_m1)
+  .bar({x: 'field', y: 'value'})
   .render();
           </pre>
       </div>
     </div>
     <div class="chart-container">
-      <p class="title">Bar chart 条形图</p>
+      <p class="title">Bar chart (horizontal)</p>
       <div class="chart-detail">
-        <div class="chart" id="bar"></div>
+        <div class="chart" id="bar-horizontal"></div>
         <pre>
-[
-  { key: 'A', value: 620 },
-  { key: 'B', value: 450 },
-  { key: 'C', value: 970 },
-  { key: 'D', value: 780 }
-]
-
+$chart(dom, data_d1_m1)
+  .bar({x: 'field', y: 'value'})
+  .transpose()
+  .render();
+            </pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Grouped Bar Chart (vertical)</p>
+      <div class="chart-detail">
+        <div class="chart" id="grouped-bar-vertical"></div>
+        <pre>
 $chart(dom, data)
-  .x('key')
-  .y('value')
-  .bar()
+  .bar({
+    x: 'field1|field2', 
+    y: 'value'
+  })
+  .render();
+            </pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Grouped Bar Chart (horizontal)</p>
+      <div class="chart-detail">
+        <div class="chart" id="grouped-bar-horizontal"></div>
+        <pre>
+$chart(dom, data)
+  .bar({
+    x: 'field1|field2', 
+    y: 'value'
+  })
   .transpose()
   .render();
             </pre>
       </div>
     </div>
   </div>
-
   <h2>👉&nbsp;interaction analysis</h2>
   <div class="opration-block">
     <h3>📐&nbsp;show the highest
@@ -115,7 +100,7 @@ $chart(dom, data)
       </label>
     </h3>
     <p>快速在图表中找到标记出来最大值</p>
-    <pre>$chart()...highlight('max', number).repaint()<br/>number 为可选参数，默认1</pre>
+    <pre>chartInstance.highlight('max', number).repaint()<br/>number 为可选参数，默认1</pre>
     <div class="sample-charts"></div>
   </div>
   <div class="opration-block">
@@ -126,11 +111,11 @@ $chart(dom, data)
       </label>
     </h3>
     <p>快速在图表中找到标记出来最小值</p>
-    <pre>$chart()...highlight('min', number).repaint()<br/>number 为可选参数，默认1</pre>
+    <pre>chartInstance.highlight('min', number).repaint()<br/>number 为可选参数，默认1</pre>
     <div class="sample-charts"></div>
   </div>
   <div class="opration-block">
-    <h3>📏&nbsp;sort
+    <h3>🗂&nbsp;sort
       <div class="input">
         <input type="radio" id="order-ascending" name="contact" value="ascending">
         <label for="order-ascending">ascending</label>
@@ -141,33 +126,33 @@ $chart(dom, data)
       </div>
     </h3>
     <p>选择排序方式，并且可以在动效中清晰的看到数据移动关系</p>
-    <pre>$chart()...sort('descending').repaint()</pre>
+    <pre>chartInstance.sort('descending').repaint()</pre>
     <div class="sample-charts"></div>
   </div>
   <div class="opration-block">
-    <h3>📏&nbsp;Compare with target (kufri)
+    <h3>🧮&nbsp;Compare with target (kufri)
       <div class="input">
         <input type="checkbox" id="with-target" name="with-target" value="ascending">
         <label for="with-target">with target</label>
       </div>
     </h3>
     <p>添加一组目标数组，快速查看哪些数据超过目标值</p>
-    <pre>$chart()...compare(data, 'target').repaint()</pre>
+    <pre>chartInstance.compare(data, 'target').repaint()</pre>
     <div class="sample-charts"></div>
   </div>
   <div class="opration-block">
-    <h3>📏&nbsp;Compare with another dataset
+    <h3>⚖️&nbsp;Compare with another dataset
       <div class="input">
         <input type="checkbox" id="compare" name="with-target" value="ascending">
         <label for="compare">compare</label>
       </div>
     </h3>
     <p>添加一组目标数组，快速查看哪些数据超过目标值</p>
-    <pre>$chart()...compare(data, 'data').repaint()</pre>
+    <pre>chartInstance.compare(data, 'data').repaint()</pre>
     <div class="sample-charts"></div>
   </div>
   <div class="opration-block">
-    <h3>📏&nbsp;Add or delete data set
+    <h3>🔧&nbsp;Add or delete data set
       <div class="input">
         <button>push</button>
         <button>pop</button>
@@ -177,10 +162,10 @@ $chart(dom, data)
     </h3>
     <p>数据量增加或者去掉</p>
     <pre>
-$chart()...push(data).repaint()
-$chart()...pop(data).repaint()
-$chart()...shift(data).repaint()
-$chart()...unshift(data).repaint()</pre>
+chartInstance.push(data).repaint()
+chartInstance.pop(data).repaint()
+chartInstance.shift(data).repaint()
+chartInstance.unshift(data).repaint()</pre>
     <div class="sample-charts"></div>
   </div>
 </body>

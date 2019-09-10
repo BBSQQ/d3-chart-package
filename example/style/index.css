@@ -15,15 +15,24 @@ h2 {
   margin-bottom: 20px;
 }
 
+.data-wrapper,
 .chart-wrapper {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
 
+.data-wrapper>div {
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.data-wrapper p {
+  margin-bottom: 10px;
+}
+
 .chart-wrapper .chart-container {
   width: 48%;
-  /* height: 250px; */
   border: 1px dashed #000;
   margin-bottom: 20px;
   display: flex;
@@ -49,6 +58,7 @@ h2 {
 .chart-wrapper .chart-container .chart-detail .chart,
 .chart-wrapper .chart-container .chart-detail>pre {
   width: 50%;
+  height: 220px;
 }
 
 .chart-wrapper .chart-container .chart-detail>pre {
@@ -101,5 +111,3 @@ h2 {
   line-height: 20px;
   padding: 10px;
 }
-
-.opration-block .sample-charts {}
