@@ -6,24 +6,17 @@ var data_d1_m1 = [
 ];
 
 var data_d2_m1 = [
-  { field1: 'A', field2: 'a', value: 10 },
-  { field1: 'A', field2: 'b', value: 18 },
-  { field1: 'B', field2: 'a', value: 30 },
-  { field1: 'B', field2: 'b', value: 25 },
-  { field1: 'C', field2: 'a', value: 55 },
-  { field1: 'C', field2: 'b', value: 23 },
+  { field: 'A', value1: 20, value2: 28 },
+  { field: 'B', value1: 10, value2: 30 },
+  { field: 'C', value1: 15, value2: 18 },
+  { field: 'D', value1: 40, value2: 35 }
 ];
 
-var data_d2_m1_2 = [
-  { field1: 'A', field2: 'a', value: 10 },
-  { field1: 'A', field2: 'b', value: 18 },
-  { field1: 'A', field2: 'c', value: 12 },
-  { field1: 'B', field2: 'a', value: 30 },
-  { field1: 'B', field2: 'b', value: 25 },
-  { field1: 'B', field2: 'c', value: 7 },
-  { field1: 'C', field2: 'a', value: 40 },
-  { field1: 'C', field2: 'b', value: 23 },
-  { field1: 'C', field2: 'c', value: 10 },
+var data_d3_m1 = [
+  { field: 'A', value1: 20, value2: 28, value3: 13 },
+  { field: 'B', value1: 10, value2: 30, value3: 29 },
+  { field: 'C', value1: 15, value2: 18, value3: 55 },
+  { field: 'D', value1: 40, value2: 35, value3: 39 }
 ];
 
 var data_m2_format = [

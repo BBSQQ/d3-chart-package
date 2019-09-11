@@ -28,8 +28,8 @@
       <div id="data_d2_m1"></div>
     </div>
     <div>
-      <p>(3) 2 dimension + 1 measure</p>
-      <div id="data_d2_m1_2"></div>
+      <p>(3) 3 dimension + 1 measure</p>
+      <div id="data_d3_m1"></div>
     </div>
     <div>
       <p>(4) 2 measure format</p>
@@ -45,6 +45,7 @@
         <pre>
 $chart(dom, data_d1_m1)
   .bar({x: 'field', y: 'value'})
+  .color('field', ['#22a6a1', '#ffda8a', '#ff9c4d', '#343e73'])
   .render();
           </pre>
       </div>
@@ -56,6 +57,7 @@ $chart(dom, data_d1_m1)
         <pre>
 $chart(dom, data_d1_m1)
   .bar({x: 'field', y: 'value'})
+  .color('field', ['#22a6a1', '#ffda8a', '#ff9c4d', '#343e73'])
   .transpose()
   .render();
             </pre>
@@ -66,11 +68,9 @@ $chart(dom, data_d1_m1)
       <div class="chart-detail">
         <div class="chart" id="grouped-bar-vertical"></div>
         <pre>
-$chart(dom, data)
-  .bar({
-    x: 'field1|field2', 
-    y: 'value'
-  })
+$chart(dom, data_d2_m1)
+  .bar({ x: 'field', y: 'value1|value2' })
+  .color(['value1', 'value2'], ['#343e73', '#d0215a'])
   .render();
             </pre>
       </div>
@@ -80,14 +80,35 @@ $chart(dom, data)
       <div class="chart-detail">
         <div class="chart" id="grouped-bar-horizontal"></div>
         <pre>
-$chart(dom, data)
-  .bar({
-    x: 'field1|field2', 
-    y: 'value'
-  })
+$chart(dom, data_d2_m1)
+  .bar({ x: 'field', y: 'value1|value2' })
+  .color(['value1', 'value2'], ['#343e73', '#d0215a'])
   .transpose()
   .render();
             </pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Grouped Bar Chart -3 (vertical)</p>
+      <div class="chart-detail">
+        <div class="chart" id="grouped-bar-vertical-2"></div>
+        <pre>
+$chart(dom, data_d3_m1)
+  .bar({ x: 'field', y: 'value1|value2|value3' })
+  .color(['value1', 'value2', 'value3'], ['#343e73', '#d0215a', '#ff9c4d'])
+  .render();</pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Grouped Bar Chart -3 (horizontal)</p>
+      <div class="chart-detail">
+        <div class="chart" id="grouped-bar-horizontal-2"></div>
+        <pre>
+$chart(dom, data_d3_m1)
+  .bar({ x: 'field', y: 'value1|value2|value3' })
+  .color(['value1', 'value2', 'value3'], ['#343e73', '#d0215a', '#ff9c4d'])
+  .transpose()
+  .render();</pre>
       </div>
     </div>
   </div>
