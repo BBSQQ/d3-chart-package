@@ -32,6 +32,10 @@
       <div id="data_d3_m1"></div>
     </div>
     <div>
+      <p>(3) 4 dimension + 1 measure</p>
+      <div id="data_d4_m1"></div>
+    </div>
+    <div>
       <p>(4) 2 measure format</p>
       <div id="data_m2_format"></div>
     </div>
@@ -107,6 +111,29 @@ $chart(dom, data_d3_m1)
 $chart(dom, data_d3_m1)
   .bar({ x: 'field', y: 'value1|value2|value3' })
   .color(['value1', 'value2', 'value3'], ['#343e73', '#d0215a', '#ff9c4d'])
+  .transpose()
+  .render();</pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Stacked Bar Chart (vertical)</p>
+      <div class="chart-detail">
+        <div class="chart" id="stacked-bar-vertical"></div>
+        <pre>
+$chart(dom, data_d4_m1)
+  .bar({ x: 'field', y: 'value1+value2+value3+value4' })
+  .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
+  .render();</pre>
+      </div>
+    </div>
+    <div class="chart-container">
+      <p class="title">Stacked Bar Chart (horizontal)</p>
+      <div class="chart-detail">
+        <div class="chart" id="stacked-bar-horizontal"></div>
+        <pre>
+$chart(dom, data_d3_m1)
+  .bar({ x: 'field', y: 'value1+value2+value3+value4' })
+  .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
   .transpose()
   .render();</pre>
       </div>

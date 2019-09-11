@@ -12,13 +12,17 @@ window.onload = function () {
     data: data_d3_m1,
     licenseKey: 'non-commercial-and-evaluation'
   });
+  new Handsontable(document.getElementById('data_d4_m1'), {
+    data: data_d4_m1,
+    licenseKey: 'non-commercial-and-evaluation'
+  });
   new Handsontable(document.getElementById('data_m2_format'), {
     data: data_m2_format,
     licenseKey: 'non-commercial-and-evaluation'
   });
 
 
-  var i = $chart(document.getElementById('bar-vertical'), data_d1_m1)
+  $chart(document.getElementById('bar-vertical'), data_d1_m1)
     .bar({ x: 'field', y: 'value' })
     .color('field', ['#22a6a1', '#ffda8a', '#ff9c4d', '#343e73'])
     .render();
@@ -51,6 +55,15 @@ window.onload = function () {
     .transpose()
     .render();
 
-  console.log(i)
+  $chart(document.getElementById('stacked-bar-vertical'), data_d4_m1)
+    .bar({ x: 'field', y: 'value1+value2+value3+value4' })
+    .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
+    .render();
+
+  $chart(document.getElementById('stacked-bar-horizontal'), data_d4_m1)
+    .bar({ x: 'field', y: 'value1+value2+value3+value4' })
+    .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
+    .transpose()
+    .render();
 
 };

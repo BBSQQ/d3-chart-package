@@ -68,18 +68,30 @@ class $chart {
       .range(this._isHorizontal ? [0, this._height] : [0, this._width])
       .padding(0.3);
 
-    const valueArray = this._data.reduce((prev, curr) => {
-      const arr = [];
+
+    const getYValus = () => {
       if (this._shape === type.GROUPED_BAR) {
-        this._y.key.forEach(k => arr.push(curr[k]));
-      } else {
-        arr.push(curr[this._y.key]);
+        const valueArray = this._data.reduce((prev, curr) => {
+          const arr = [];
+          this._y.key.forEach(k => arr.push(curr[k]));
+          return prev.concat(arr);
+        }, []);
+
+        return valueArray;
       }
-      return prev.concat(arr);
-    }, []);
+
+      if (this._shape === type.STACKED_BAR) {
+        const series = d3.stack().keys(this._y.key)(this._data);
+        return series.map(d => d3.max(d, d => d[1]));
+      }
+
+      if (this._shape === type.BAR) {
+        return this._data.map(d => d[this._y.key]);
+      }
+    };
 
     const yScale = d3.scaleLinear()
-      .domain([0, d3.max(valueArray) * 1.2])
+      .domain([0, d3.max(getYValus()) * 1.1])
       .range(this._isHorizontal ? [0, this._width] : [this._height, 0]);
 
     const _xAxis = g => g
@@ -132,7 +144,21 @@ class $chart {
           .attr('height', d => this._isHorizontal ? xGroupedScale.bandwidth() : yScale(0) - yScale(d.value))
           .attr('width', d => this._isHorizontal ? yScale(d.value) : xGroupedScale.bandwidth())
           .attr('fill', d => this._colorScale ? this._colorScale(d.key) : palette.default_color);
+      } else if (this._shape === type.STACKED_BAR) {
+        const series = d3.stack().keys(this._y.key)(this._data);
+        return g.selectAll('g')
+          .data(series)
+          .join('g')
+          .attr('fill', d => this._colorScale(d.key))
+          .selectAll('rect')
+          .data(d => d)
+          .join('rect')
+          .attr('x', d => this._isHorizontal ? yScale(d[0]) : xScale(d.data[this._x.key]))
+          .attr('y', d => this._isHorizontal ? xScale(d.data[this._x.key]) : yScale(d[1]))
+          .attr('height', d => this._isHorizontal ? xScale.bandwidth() : (yScale(d[0]) - yScale(d[1])))
+          .attr('width', d => this._isHorizontal ? (yScale(d[1]) - yScale(d[0])) : xScale.bandwidth());
       }
+
     };
 
     _svg.append('g').call(_xAxis); // x轴
@@ -214,6 +240,10 @@ class $chart {
     // } else if (this._shape === type.GROUPED_BAR) {
     //   this._svg = this._drawGroupedBarChart();
     // }
+
+    if (!this._colorScale) {
+      this._colorScale = d3.scaleOrdinal().range(d3.schemeCategory10);
+    }
     this._svg = this._drawBarChart();
     return this;
   }

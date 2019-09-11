@@ -19,6 +19,13 @@ var data_d3_m1 = [
   { field: 'D', value1: 40, value2: 35, value3: 39 }
 ];
 
+var data_d4_m1 = [
+  { field: 'A', value1: 20, value2: 28, value3: 13, value4: 24 },
+  { field: 'B', value1: 10, value2: 30, value3: 29, value4: 33 },
+  { field: 'C', value1: 15, value2: 18, value3: 55, value4: 40 },
+  { field: 'D', value1: 40, value2: 35, value3: 39, value4: 55 }
+];
+
 var data_m2_format = [
   { field: '50-60', value: 2 },
   { field: '60-70', value: 6 },
