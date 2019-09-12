@@ -1,5 +1,6 @@
 src/
 example/
+doc/
 
 webpack.config.js
 webpack.config.prod.js
