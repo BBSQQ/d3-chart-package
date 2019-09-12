@@ -1,6 +1,6 @@
 {
   "name": "d3-chart-package",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "基于d3.js 封装的图表库",
   "keyword": "d3 chart",
   "main": "lib/index.js",
