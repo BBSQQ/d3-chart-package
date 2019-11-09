@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import * as type from './type';
-import * as palette from './palette';
+import * as defaultPalette from './palette';
 
 class $chart {
   constructor(dom, data) {
@@ -44,7 +44,7 @@ class $chart {
 
   color(key, palette) {
     // 之后可以区分对待color 是映射到离散数据还是连续数据的
-    if (Array.isArray(key) && Array.isArray(palette) && key.length === palette.length) {
+    if (Array.isArray(key) && Array.isArray(palette) && (key.length === palette.length)) {
       this._colorScale = d3.scaleOrdinal().domain(key).range(palette);
     } else {
       this._colorScale = d3.scaleOrdinal().domain(this._data.map(d => d[key])).range(palette);
@@ -124,7 +124,7 @@ class $chart {
           .attr('height', d => this._isHorizontal ? xScale.bandwidth() : yScale(0) - yScale(d[this._y.key]))
           .attr('width', d => this._isHorizontal ? yScale(d[this._y.key]) : xScale.bandwidth())
           // 柱形图的时候只有x轴可以区分对待
-          .attr('fill', d => this._colorScale ? this._colorScale(d[this._x.key]) : palette.default_color);
+          .attr('fill', d => this._colorScale ? this._colorScale(d[this._x.key]) : defaultPalette.default_color);
       } else if (this._shape === type.GROUPED_BAR) {
 
         const xGroupedScale = d3.scaleBand()
@@ -143,7 +143,7 @@ class $chart {
           .attr('y', d => this._isHorizontal ? xGroupedScale(d.key) : yScale(d.value))
           .attr('height', d => this._isHorizontal ? xGroupedScale.bandwidth() : yScale(0) - yScale(d.value))
           .attr('width', d => this._isHorizontal ? yScale(d.value) : xGroupedScale.bandwidth())
-          .attr('fill', d => this._colorScale ? this._colorScale(d.key) : palette.default_color);
+          .attr('fill', d => this._colorScale ? this._colorScale(d.key) : defaultPalette.default_color);
       } else if (this._shape === type.STACKED_BAR) {
         const series = d3.stack().keys(this._y.key)(this._data);
         return g.selectAll('g')
@@ -217,7 +217,7 @@ class $chart {
       .attr('height', d => this._isHorizontal ? xScale.bandwidth() : yScale(0) - yScale(d[this._y.key]))
       .attr('width', d => this._isHorizontal ? yScale(d[this._y.key]) : xScale.bandwidth())
       // 柱形图的时候只有x轴可以区分对待
-      .attr('fill', d => this._colorScale ? this._colorScale(d[this._x.key]) : palette.default_color);
+      .attr('fill', d => this._colorScale ? this._colorScale(d[this._x.key]) : defaultPalette.default_color);
 
     _svg.append('g').call(_xAxis); // x轴
 

@@ -66,4 +66,15 @@ window.onload = function () {
     .transpose()
     .render();
 
+  $chart(document.getElementById('100-stacked-bar-vertical'), data_d4_m1)
+    .bar({ x: 'field', y: 'value1+value2+value3+value4', yFormat: 'percent' })
+    .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
+    .render();
+
+  $chart(document.getElementById('100-stacked-bar-horizontal'), data_d4_m1)
+    .bar({ x: 'field', y: 'value1+value2+value3+value4', yFormat: 'percent' })
+    .color(['value1', 'value2', 'value3', 'value4'], ['#fa581f', '#ff9c4d', '#ffda8a', '#e0b8ed'])
+    .transpose()
+    .render();
+
 };
